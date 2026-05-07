@@ -1,1 +1,41 @@
 
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_absolute_error
+from xgboost import XGBRegressor
+import joblib
+
+def train_model():
+
+    # Load Dataset
+    df = pd.read_csv("data/processed_shipping_data.csv")
+
+    # Features and Target
+    X = df.drop('demand', axis=1)
+    y = df['demand']
+
+    # Split Dataset
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=42
+    )
+
+    # Train Model
+    model = XGBRegressor()
+
+    model.fit(X_train, y_train)
+
+    # Predictions
+    predictions = model.predict(X_test)
+
+    # Evaluate Model
+    mae = mean_absolute_error(y_test, predictions)
+
+    print("Mean Absolute Error:", mae)
+
+    # Save Model
+    joblib.dump(model, "models/demand_forecast_model.pkl")
+
+    print("Demand forecasting model trained successfully.")
+
+if __name__ == "__main__":
+    train_model()
