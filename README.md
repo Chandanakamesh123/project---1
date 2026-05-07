@@ -252,29 +252,31 @@ factory-shipping-optimization-system/
 
 #  Installation
 
-## Clone the Repository
+**## Clone the Repository**
 
 ```bash
 git clone <repository_link>
+<https://github.com/Chandanakamesh123/project---1>
 
-**## Move to Project Directory**
+## Move to Project Directory
 
 cd factory-shipping-optimization-system
 
-**## Install Dependencies**
+## Install Dependencies
 
 pip install -r requirements.txt
 
-** Running the Project
-Run Main Application**
+## Running the Project
+
+Run Main Application
 
 python main.py
 
-**Run Streamlit Dashboard**
+Run Streamlit Dashboard
 
 streamlit run dashboard/app.py
-
 ---
 
-**## AUTHOR**
+## AUTHOR
+
 CHANDANA K
